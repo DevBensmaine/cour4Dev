@@ -41,18 +41,39 @@ class ProfessorController extends Controller
         }
       
     }
-    public function updateAction()
+    public function updateAction(Request $request ,Professor $professor = null)
     {
-        return $this->render('@Cours4Devprofessor/Professor/update.html.twig', array(
-            // ...
-        ));
+        $form = $this->createForm(ProfessorType::class, $professor);
+        $form->handleRequest($request);
+
+
+        if ($professor && $form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $professor->setNom($professor->getNom() );
+                $professor->setPrenom($professor->getPrenom() );
+                $professor->setEmail($professor->getEmail() );
+                $em->persist($professor);
+                $em->flush();
+                return $this->redirectToRoute('professorlist', array());
+            }
+    
+            else {
+                return $this->render('@Cours4Devprofessor/Professor/update.html.twig', array(
+                    'form' => $form->createView(),
+                    'professor'=>$professor
+                ));
+            }
+       
     }
 
-    public function deleteAction()
+    public function deleteAction(Request $request ,Professor $professor = null)
     {
-        return $this->render('@Cours4Devprofessor/Professor/delete.html.twig', array(
-            // ...
-        ));
+        if ($professor) {
+            $em = $this->getDoctrine()->getManager();  
+            $em->remove($professor);
+            $em->flush();
+        }
+        return $this->redirectToRoute('professorlist', array());
     }
 
     public function listAction()

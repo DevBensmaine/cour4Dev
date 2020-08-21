@@ -7,11 +7,11 @@ professoraddForm:
     defaults: { _controller: Cours4DevprofessorBundle:Professor:addProfessor }
 
 professorupdate:
-    path:     /update
+    path:     /update/{professor}
     defaults: { _controller: Cours4DevprofessorBundle:Professor:update }
 
 professordelete:
-    path:     /delete
+    path:     /delete/{professor}
     defaults: { _controller: Cours4DevprofessorBundle:Professor:delete }
 
 professorlist:

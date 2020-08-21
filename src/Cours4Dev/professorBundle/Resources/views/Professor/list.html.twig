@@ -48,12 +48,12 @@
 										<td>{{ professor.prenom|lower }}</td>
 										<td>{{ professor.email|lower }}</td>
 										<td>
-											<button type="button" class="btn btn-default" aria-label="Left Align">
+											<a  href="{{ path('professorupdate', {professor: professor.id}) }}" class="btn btn-default" aria-label="Left Align">
 												<span class="mdi mdi-account-edit edit-action-p" aria-hidden="true"></span>
-											</button>
-											<button type="button" class="btn btn-default" aria-label="Left Align">
+											</a>
+											<a href="{{ path('professordelete', {professor: professor.id}) }}" class="btn btn-default" aria-label="Left Align">
 												<span class="mdi mdi-account-remove remove-action-p" aria-hidden="true"></span>
-											</button>
+											</a>
 										</td>
 									</tr>
 

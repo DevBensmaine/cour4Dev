@@ -1,0 +1,19 @@
+professoradd:
+    path:     /add
+    defaults: { _controller: Cours4DevprofessorBundle:Professor:add }
+
+professoraddForm:
+    path:     /addProfessor
+    defaults: { _controller: Cours4DevprofessorBundle:Professor:addProfessor }
+
+professorupdate:
+    path:     /update
+    defaults: { _controller: Cours4DevprofessorBundle:Professor:update }
+
+professordelete:
+    path:     /delete
+    defaults: { _controller: Cours4DevprofessorBundle:Professor:delete }
+
+professorlist:
+    path:     /
+    defaults: { _controller: Cours4DevprofessorBundle:Professor:list }

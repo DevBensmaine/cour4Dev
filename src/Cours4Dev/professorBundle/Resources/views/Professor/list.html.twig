@@ -16,7 +16,8 @@
 		</div>
 		<div class="col align-self-end" style="text-align: right;">
 			<a href="{{ path('professoradd') }}" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down">
-			Add professor	</a>
+				Add professor
+			</a>
 		</div>
 	</div>
 
@@ -40,36 +41,24 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1</td>
-									<td>Deshmukh</td>
-									<td>Prohaska</td>
-									<td>@Genelia</td>
-									<td>
-										<button type="button" class="btn btn-default" aria-label="Left Align">
-											<span class="mdi mdi-account-edit edit-action-p" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="btn btn-default" aria-label="Left Align">
-											<span class="mdi mdi-account-remove remove-action-p" aria-hidden="true"></span>
-										</button>
-									</td>
-								</tr>
+								{% for professor in professors %}
+									<tr>
+										<td>{{ professor.id }}</td>
+										<td>{{ professor.nom|lower }}</td>
+										<td>{{ professor.prenom|lower }}</td>
+										<td>{{ professor.email|lower }}</td>
+										<td>
+											<button type="button" class="btn btn-default" aria-label="Left Align">
+												<span class="mdi mdi-account-edit edit-action-p" aria-hidden="true"></span>
+											</button>
+											<button type="button" class="btn btn-default" aria-label="Left Align">
+												<span class="mdi mdi-account-remove remove-action-p" aria-hidden="true"></span>
+											</button>
+										</td>
+									</tr>
 
+								{% endfor %}
 
-								<tr>
-									<td>1</td>
-									<td>Deshmukh</td>
-									<td>Prohaska</td>
-									<td>@Genelia</td>
-									<td>
-										<button type="button" class="btn btn-default" aria-label="Left Align">
-											<span class="mdi mdi-account-edit edit-action-p" aria-hidden="true"></span>
-										</button>
-										<button type="button" class="btn btn-default" aria-label="Left Align">
-											<span class="mdi mdi-account-remove remove-action-p" aria-hidden="true"></span>
-										</button>
-									</td>
-								</tr>
 
 							</tbody>
 						</table>

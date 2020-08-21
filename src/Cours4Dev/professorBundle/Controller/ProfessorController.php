@@ -11,15 +11,12 @@ class ProfessorController extends Controller
 {
     public function addAction()
     {
-
         $professor = new Professor();
         $form = $this->createForm(ProfessorType::class, $professor, array(
             'action'=>$this->generateUrl('professoraddForm')
         ));
       
-
         return $this->render('@Cours4Devprofessor/Professor/add.html.twig', array(
-            // ...
             'form' => $form->createView()
         ));
     }
@@ -35,7 +32,7 @@ class ProfessorController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($professor);
             $em->flush();
-            return $this->forward('Cours4DevprofessorBundle:Professor:list');
+            return $this->redirectToRoute('professorlist', array());
         }
         else {
             return $this->render('@Cours4Devprofessor/Professor/add.html.twig', array(
@@ -60,8 +57,11 @@ class ProfessorController extends Controller
 
     public function listAction()
     {
+        $repository = $this->getDoctrine()->getRepository('Cours4DevprofessorBundle:Professor');
+        $professors = $repository->findAll();
+
         return $this->render('@Cours4Devprofessor/Professor/list.html.twig', array(
-            // ...
+            'professors' =>$professors
         ));
     }
 

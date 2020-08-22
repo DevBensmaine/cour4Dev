@@ -1,0 +1,4 @@
+services:
+#    cours4_dev_formation.example:
+#        class: Cours4Dev\FormationBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

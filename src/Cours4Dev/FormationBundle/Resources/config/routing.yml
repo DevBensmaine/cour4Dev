@@ -1,0 +1,7 @@
+cours4_dev_formation_homepage:
+    path:     /
+    defaults: { _controller: Cours4DevFormationBundle:Formation:index }
+
+cours4_dev_formation_add:
+    path:     /add
+    defaults: { _controller: Cours4DevFormationBundle:Formation:add}

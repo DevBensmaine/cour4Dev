@@ -1,3 +1,7 @@
+cours4_dev_formation:
+    resource: "@Cours4DevFormationBundle/Resources/config/routing.yml"
+    prefix:   /formation
+
 cours4_dev_category:
     resource: "@Cours4DevCategoryBundle/Resources/config/routing.yml"
     prefix:   /category

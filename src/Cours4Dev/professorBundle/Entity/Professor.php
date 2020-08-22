@@ -3,6 +3,7 @@
 namespace Cours4Dev\professorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Professor
@@ -23,21 +24,24 @@ class Professor
 
     /**
      * @var string
-     *
+     *  @Assert\NotBlank( message = "please enter the first name it's mandatory")
      * @ORM\Column(name="nom", type="string", length=255)
      */
     private $nom;
 
     /**
      * @var string
-     *
+     *  @Assert\NotBlank( message = "please enter the first name it's mandatory")
      * @ORM\Column(name="prenom", type="string", length=255)
      */
     private $prenom;
 
     /**
      * @var string
-     *
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email."
+     * )
+     *  @Assert\NotBlank( message = "please enter the email it's mandatory")
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;

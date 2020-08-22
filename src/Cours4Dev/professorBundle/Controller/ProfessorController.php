@@ -68,6 +68,7 @@ class ProfessorController extends Controller
 
     public function deleteAction(Request $request ,Professor $professor = null)
     {
+
         if ($professor) {
             $em = $this->getDoctrine()->getManager();  
             $em->remove($professor);

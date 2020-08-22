@@ -1,0 +1,4 @@
+services:
+#    cours4_dev_category.example:
+#        class: Cours4Dev\CategoryBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

@@ -1,0 +1,15 @@
+cours4_dev_category_homepage:
+    path:     /
+    defaults: { _controller: Cours4DevCategoryBundle:Category:index }
+
+cours4_dev_category_add:
+    path:     /add
+    defaults: { _controller: Cours4DevCategoryBundle:Category:add }
+
+cours4_dev_category_update:
+    path:     /update/{category}
+    defaults: { _controller: Cours4DevCategoryBundle:Category:update }
+
+cours4_dev_category_delete:
+    path:     /delete/{category}
+    defaults: { _controller: Cours4DevCategoryBundle:Category:delete }

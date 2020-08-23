@@ -5,3 +5,12 @@ cours4_dev_formation_homepage:
 cours4_dev_formation_add:
     path:     /add
     defaults: { _controller: Cours4DevFormationBundle:Formation:add}
+
+cours4_dev_formation_update:
+    path:     /update/{formation}
+    defaults: { _controller: Cours4DevFormationBundle:Formation:update}
+
+cours4_dev_formation_delete:
+    path:     /delete/{formation}
+    defaults: { _controller: Cours4DevFormationBundle:Formation:delete}
+

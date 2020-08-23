@@ -41,17 +41,18 @@
 								</tr>
 							</thead>
 							<tbody>
+
 								{% for formation in formations %}
 									<tr>
 										<td>{{ formation.id }}</td>
 										<td>{{ formation.titre|lower }}</td>
 										<td>{{ formation.description|lower }}</td>
-										<td>{{ formation.professor.id|lower }}</td>
+										<td>{{ formation.professor.nom|lower }}</td>
 										<td>
-											<a  href="{{ path('professorupdate', {formation: formation.id }) }}" class="btn btn-default" aria-label="Left Align">
+											<a  href="{{ path('cours4_dev_formation_update', {formation: formation.id }) }}" class="btn btn-default" aria-label="Left Align">
 												<span class="mdi mdi-account-edit edit-action-p" aria-hidden="true"></span>
 											</a>
-											<a href="{{ path('professordelete', {formation: formation.id }) }}" class="btn btn-default" aria-label="Left Align">
+											<a href="{{ path('cours4_dev_formation_delete', {formation: formation.id }) }}" class="btn btn-default" aria-label="Left Align">
 												<span class="mdi mdi-account-remove remove-action-p" aria-hidden="true"></span>
 											</a>
 										</td>

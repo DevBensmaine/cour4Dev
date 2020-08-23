@@ -30,7 +30,7 @@ class FormationController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($formation);
             $em->flush();
-            return $this->forward('Cours4Dev:FormationBundle:Formation:index');
+            return $this->redirectToRoute('cours4_dev_formation_homepage', array());
         } else {
             return $this->render('@Cours4DevFormation/Formation/add.html.twig', array(
                 'form' => $form->createView()
@@ -39,4 +39,39 @@ class FormationController extends Controller
 
     }
 
+    public function updateAction(Request $request ,Formation $formation = null)
+    {
+
+        $form = $this->createForm(FormationType::class,$formation);
+        $form->handleRequest($request);
+
+
+        if ($formation && $form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $formation->setTitre( $formation->getTitre()  );
+                $formation->setDescription( $formation->getDescription() );
+                $formation->setProfessor($formation->getProfessor());
+                $em->persist($formation);
+                $em->flush();
+                return $this->redirectToRoute('cours4_dev_formation_homepage', array());
+            }
+    
+            else {
+                return $this->render('@Cours4DevFormation/Formation/update.html.twig', array(
+                    'form' => $form->createView(),
+                    'formation'=>$formation
+                ));
+            }
+       
+    }
+
+    public function deleteAction(Request $request , Formation $formation = null)
+    {
+        if ($formation) {
+            $em = $this->getDoctrine()->getManager();  
+            $em->remove($formation);
+            $em->flush();
+        }
+        return $this->redirectToRoute('cours4_dev_formation_homepage', array());
+    }
 }

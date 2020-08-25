@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Cours4Dev\CategoryBundle\Cours4DevCategoryBundle(),
             new Cours4Dev\FormationBundle\Cours4DevFormationBundle(),
             new Cours4Dev\ChapitreBundle\Cours4DevChapitreBundle(),
+            new Cours4Dev\CourBundle\Cours4DevCourBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

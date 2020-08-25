@@ -1,0 +1,15 @@
+cours4_dev_cour_homepage:
+    path:     /
+    defaults: { _controller: Cours4DevCourBundle:Cour:index }
+
+cours4_dev_cour_home_update:
+    path:     /update/{cour}
+    defaults: { _controller: Cours4DevCourBundle:Cour:update }
+
+cours4_dev_cour_home_delete:
+    path:     /delete/{cour}
+    defaults: { _controller: Cours4DevCourBundle:Cour:delete }
+
+cours4_dev_cour_home_add:
+    path:     /add
+    defaults: { _controller: Cours4DevCourBundle:Cour:add }

@@ -1,0 +1,4 @@
+services:
+#    cours4_dev_chapitre.example:
+#        class: Cours4Dev\ChapitreBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

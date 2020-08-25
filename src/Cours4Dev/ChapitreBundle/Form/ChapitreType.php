@@ -1,13 +1,14 @@
 <?php
 
-namespace Cours4Dev\CategoryBundle\Form;
+namespace Cours4Dev\ChapitreBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
-class CategoryType extends AbstractType
+class ChapitreType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -15,7 +16,11 @@ class CategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->setAction( $options['action'])
-                ->add('title')
+                ->add('titre')
+                ->add('formation',EntityType::class,[
+                    'class'=>'Cours4Dev\FormationBundle\Entity\Formation',
+                    'choice_label'=>'titre'
+                ])
                 ->add('Add', SubmitType::class, [
                     'attr' => ['class' => 'btn btn-primary'],
                 ]);
@@ -25,7 +30,7 @@ class CategoryType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Cours4Dev\CategoryBundle\Entity\Category'
+            'data_class' => 'Cours4Dev\ChapitreBundle\Entity\Chapitre'
         ));
     }
 
@@ -34,7 +39,7 @@ class CategoryType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'cours4dev_categorybundle_category';
+        return 'cours4dev_chapitrebundle_chapitre';
     }
 
 

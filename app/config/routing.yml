@@ -1,3 +1,7 @@
+cours4_dev_chapitre:
+    resource: "@Cours4DevChapitreBundle/Resources/config/routing.yml"
+    prefix:   /chapitre
+
 cours4_dev_formation:
     resource: "@Cours4DevFormationBundle/Resources/config/routing.yml"
     prefix:   /formation

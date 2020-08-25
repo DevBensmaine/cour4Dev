@@ -1,0 +1,15 @@
+cours4_dev_chapitre_homepage:
+    path:     /
+    defaults: { _controller: Cours4DevChapitreBundle:Chapitre:index }
+
+cours4_dev_chapitre_add:
+    path:     /add
+    defaults: { _controller: Cours4DevChapitreBundle:Chapitre:add }
+
+cours4_dev_chapitre_update:
+    path:     /update/{chapitre}
+    defaults: { _controller: Cours4DevChapitreBundle:Chapitre:update }
+
+cours4_dev_chapitre_delete:
+    path:     /delete/{chapitre}
+    defaults: { _controller: Cours4DevChapitreBundle:Chapitre:delete }

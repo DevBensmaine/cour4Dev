@@ -37,13 +37,17 @@ class Formation
 
 
     /**
-     * @ORM\OneToOne(targetEntity="Cours4Dev\FormationBundle\Entity\Cours")
+     * @ORM\OneToOne(targetEntity="Cours4Dev\professorBundle\Entity\Professor")
      */
     private $professor;
 
 
-   
 
+     /**
+     * 
+     * @ORM\ManyToOne(targetEntity="Cours4Dev\ChapitreBundle\Entity\Chapitre", inversedBy="formation")
+     */
+    private $chapitre;
 
 
     /**
@@ -102,6 +106,25 @@ class Formation
     public function getDescription()
     {
         return $this->description;
+    }
+
+
+
+    public function setProfessor($professor)
+    {
+        $this->professor= $professor;
+
+        return $this;
+    }
+
+    /**
+     * Get Professor
+     *
+     * @return string
+     */
+    public function getProfessor()
+    {
+        return $this->professor;
     }
 }
 

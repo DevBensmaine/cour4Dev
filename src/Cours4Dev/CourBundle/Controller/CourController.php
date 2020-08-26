@@ -21,22 +21,31 @@ class CourController extends Controller
     }
 
     public function addAction(Request $request)
-    {
+    {  
         $cour = new Cour();
         $form = $this->createForm(CourType::class,$cour);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $file = $form['video']->getData();
+            $newVideoName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move($this->getParameter('cours_video'),$newVideoName );
+            $cour->setVideo($newVideoName);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($cour);
             $em->flush();
             return $this->redirectToRoute('cours4_dev_cour_homepage', array());
+        } else {
+      
+            return $this->render('@Cours4DevCour/Cour/add.html.twig' , array(
+                'form' => $form->createView()
+            ));
+    
         }
-        return $this->render('@Cours4DevCour/Cour/add.html.twig' , array(
-            'form' => $form->createView()
-        ));
+     
 
-        return $this->render('@Cours4DevCour/Cour/add.html.twig');
     }
 
   

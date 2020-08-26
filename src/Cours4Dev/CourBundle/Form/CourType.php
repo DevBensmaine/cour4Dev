@@ -6,8 +6,10 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\File;
 
 class CourType extends AbstractType
 {
@@ -31,6 +33,12 @@ class CourType extends AbstractType
                     //         // ->orderBy('u.titre', 'ASC');
                     // },
                     'choice_label'=>'titre'
+                ])
+                ->add('video',FileType::class,[
+                    'label' => 'Add video : ',
+                    'required' => false, 
+                    'data_class' => null,
+                
                 ])
                 ->add('Add', SubmitType::class, [
                     'attr' => ['class' => 'btn btn-primary'],
